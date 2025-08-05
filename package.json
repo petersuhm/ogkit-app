@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "@headlessui/react": "^2.2.7",
+        "@heroicons/react": "^2.2.0",
         "@inertiajs/react": "^2.0.17",
         "clsx": "^2.1.1",
         "framer-motion": "^12.23.12",
