@@ -1,66 +1,79 @@
-import React from 'react';
-import { useForm } from '@inertiajs/react';
+import { AuthLayout } from '@/Components/auth-layout'
+import { Button } from '@/Components/button'
+import { Checkbox, CheckboxField } from '@/Components/checkbox'
+import { ErrorMessage, Field, Label } from '@/Components/fieldset'
+import { Heading } from '@/Components/heading'
+import { Input } from '@/Components/input'
+import { Strong, Text, TextLink } from '@/Components/text'
+import { Logo } from '@/Components/logo'
+import { useForm } from '@inertiajs/react'
 
 const Login = () => {
-    const { data, setData, post, processing, errors } = useForm({
-        email: '',
-        password: '',
-        remember: false,
-    });
+  const { data, setData, post, processing, errors } = useForm({
+    email: '',
+    password: '',
+    remember: false,
+  })
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        post('/login');
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    post('/login')
+  }
 
-    return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={data.email}
-                        onChange={(e) => setData('email', e.target.value)}
-                        required
-                    />
-                    {errors.email && <div>{errors.email}</div>}
-                </div>
-
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={data.password}
-                        onChange={(e) => setData('password', e.target.value)}
-                        required
-                    />
-                    {errors.password && <div>{errors.password}</div>}
-                </div>
-
-                <div>
-                    <label htmlFor="remember">
-                        <input
-                            type="checkbox"
-                            id="remember"
-                            checked={data.remember}
-                            onChange={(e) => setData('remember', e.target.checked)}
-                        />
-                        Remember me
-                    </label>
-                </div>
-
-                <div>
-                    <button type="submit" disabled={processing}>
-                        {processing ? 'Logging in...' : 'Login'}
-                    </button>
-                </div>
-            </form>
+  return (
+    <AuthLayout>
+      <form onSubmit={handleSubmit} className="grid w-full max-w-sm grid-cols-1 gap-8">
+        <Logo className="h-6 text-zinc-950 dark:text-white forced-colors:text-[CanvasText]" />
+        <Heading>Sign in to your account</Heading>
+        <Field>
+          <Label>Email</Label>
+          <Input 
+            type="email" 
+            name="email" 
+            value={data.email}
+            onChange={(e) => setData('email', e.target.value)}
+            invalid={!!errors.email}
+          />
+          {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+        </Field>
+        <Field>
+          <Label>Password</Label>
+          <Input 
+            type="password" 
+            name="password" 
+            value={data.password}
+            onChange={(e) => setData('password', e.target.value)}
+            invalid={!!errors.password}
+          />
+          {errors.password && <ErrorMessage>{errors.password}</ErrorMessage>}
+        </Field>
+        <div className="flex items-center justify-between">
+          <CheckboxField>
+            <Checkbox 
+              name="remember" 
+              checked={data.remember}
+              onChange={(checked) => setData('remember', checked)}
+            />
+            <Label>Remember me</Label>
+          </CheckboxField>
+          <Text>
+            <TextLink href="#">
+              <Strong>Forgot password?</Strong>
+            </TextLink>
+          </Text>
         </div>
-    );
-};
+        <Button type="submit" className="w-full" disabled={processing}>
+          {processing ? 'Signing in...' : 'Login'}
+        </Button>
+        <Text>
+          Don’t have an account?{' '}
+          <TextLink href="#">
+            <Strong>Sign up</Strong>
+          </TextLink>
+        </Text>
+      </form>
+    </AuthLayout>
+  )
+}
 
 export default Login;
