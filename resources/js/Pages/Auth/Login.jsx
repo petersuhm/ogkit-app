@@ -6,7 +6,7 @@ import { Heading } from '@/Components/heading'
 import { Input } from '@/Components/input'
 import { Strong, Text, TextLink } from '@/Components/text'
 import { Logo } from '@/Components/logo'
-import { useForm } from '@inertiajs/react'
+import { Link, useForm } from '@inertiajs/react'
 
 const Login = () => {
   const { data, setData, post, processing, errors } = useForm({
@@ -23,7 +23,9 @@ const Login = () => {
   return (
     <AuthLayout>
       <form onSubmit={handleSubmit} className="grid w-full max-w-sm grid-cols-1 gap-8">
-        <Logo className="h-6 text-zinc-950 dark:text-white forced-colors:text-[CanvasText]" />
+        <Link href="/home">
+          <Logo className="h-8 text-zinc-950 dark:text-white forced-colors:text-[CanvasText]" />
+        </Link>
         <Heading>Sign in to your account</Heading>
         <Field>
           <Label>Email</Label>
