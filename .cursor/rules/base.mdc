@@ -10,6 +10,7 @@ This is a Laravel app with React (Inertia) on the frontend.
 - Never add comments above tests - test names should be descriptive
 - If asked to write a test, produce a failing test before implementing (TDD approach)
   - It's important to first see a failing test, otherwise it defeats the purpose
+  - Offer to run the test to see it fail
 
 ## Development workflow
 - Never offer to run `npm run dev` or `php artisan serve` - I run those commands in my own shell

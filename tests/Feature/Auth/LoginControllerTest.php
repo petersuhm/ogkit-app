@@ -144,6 +144,17 @@ class LoginControllerTest extends TestCase
     }
 
     #[Test]
+    public function authenticated_user_is_redirected_from_login_page_to_dashboard(): void
+    {
+        /** @var User $user */
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->get('/login');
+
+        $response->assertRedirect('/dashboard');
+    }
+
+    #[Test]
     public function logout_invalidates_session(): void
     {
         /** @var User $user */

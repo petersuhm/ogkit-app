@@ -68,15 +68,6 @@ const Dashboard = ({ children }) => {
     <StackedLayout
       navbar={
         <Navbar>
-          <Dropdown>
-            <DropdownButton as={NavbarItem} className="max-lg:hidden">
-              <Avatar initials="TL" />
-              <NavbarLabel>Tailwind Labs</NavbarLabel>
-              <ChevronDownIcon />
-            </DropdownButton>
-            <TeamDropdownMenu />
-          </Dropdown>
-          <NavbarDivider className="max-lg:hidden" />
           <NavbarSection className="max-lg:hidden">
             {navItems.map(({ label, url }) => (
               <NavbarItem key={label} href={url}>
@@ -126,16 +117,6 @@ const Dashboard = ({ children }) => {
       }
       sidebar={
         <Sidebar>
-          <SidebarHeader>
-            <Dropdown>
-              <DropdownButton as={SidebarItem} className="lg:mb-2.5">
-                <Avatar initials="TL" />
-                <SidebarLabel>Tailwind Labs</SidebarLabel>
-                <ChevronDownIcon />
-              </DropdownButton>
-              <TeamDropdownMenu />
-            </Dropdown>
-          </SidebarHeader>
           <SidebarBody>
             <SidebarSection>
               {navItems.map(({ label, url }) => (

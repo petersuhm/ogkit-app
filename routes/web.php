@@ -13,7 +13,12 @@ Route::get('/home', function () {
     return Inertia::render('Website/Home');
 })->name('home');
 
-Route::get('/login', fn () => Inertia::render('Auth/Login'))->name('login');
+Route::get('/login', function () {
+    if (auth()->check()) {
+        return redirect('/dashboard');
+    }
+    return Inertia::render('Auth/Login');
+})->name('login');
 Route::get('/register', fn () => Inertia::render('Auth/Register'))->name('register');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
