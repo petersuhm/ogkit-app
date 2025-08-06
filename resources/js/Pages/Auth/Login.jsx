@@ -58,11 +58,6 @@ const Login = () => {
             />
             <Label>Remember me</Label>
           </CheckboxField>
-          <Text>
-            <TextLink href="#">
-              <Strong>Forgot password?</Strong>
-            </TextLink>
-          </Text>
         </div>
         <Button type="submit" className="w-full" disabled={processing}>
           {processing ? 'Signing in...' : 'Login'}
