@@ -1,0 +1,18 @@
+---
+alwaysApply: true
+---
+
+# Project Rules
+This is a Laravel app with React (Inertia) on the frontend.
+
+## Testing
+- Always use `#[Test]` attribute syntax for tests
+- Never add comments above tests - test names should be descriptive
+- If asked to write a test, produce a failing test before implementing (TDD approach)
+  - It's important to first see a failing test, otherwise it defeats the purpose
+
+## Development workflow
+- Never offer to run `npm run dev` or `php artisan serve` - I run those commands in my own shell
+- Always use `artisan make` to generate files whenever possible
+  - For basic classes, use `artisan make:class`
+  - Never generate a file manually that Laravel can generate automatically

@@ -69,7 +69,7 @@ const Login = () => {
         </Button>
         <Text>
           Don’t have an account?{' '}
-          <TextLink href="#">
+          <TextLink href="/register">
             <Strong>Sign up</Strong>
           </TextLink>
         </Text>
