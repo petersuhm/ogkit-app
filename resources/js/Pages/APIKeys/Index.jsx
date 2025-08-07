@@ -51,6 +51,7 @@ function KeyTable({ keys, className }) {
                       <EllipsisHorizontalIcon />
                     </DropdownButton>
                     <DropdownMenu anchor="bottom end">
+                      <DropdownItem>Copy key</DropdownItem>
                       <DropdownItem>Manage</DropdownItem>
                       <DropdownItem>Delete</DropdownItem>
                     </DropdownMenu>

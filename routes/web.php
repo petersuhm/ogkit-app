@@ -28,5 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', fn () => Inertia::render('Dashboard'))->name('dashboard');
     Route::get('/api-keys', [APIKeysController::class, 'index'])->name('api-keys.index');
     Route::get('/api-keys/new', [APIKeysController::class, 'create'])->name('api-keys.create');
+    Route::get('/api-keys/{id}', [APIKeysController::class, 'show'])->name('api-keys.show');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
