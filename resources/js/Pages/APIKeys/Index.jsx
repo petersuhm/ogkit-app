@@ -1,6 +1,6 @@
 import { Heading } from '@/Components/heading'
 import { Button } from '@/Components/button'
-import DashboardLayout from '../Layouts/DashboardLayout'
+import DashboardLayout from '../../Layouts/DashboardLayout'
 import { Dropdown, DropdownButton, DropdownItem, DropdownMenu } from '@/components/dropdown'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/table'
 import { EllipsisHorizontalIcon } from '@heroicons/react/16/solid'
@@ -64,16 +64,16 @@ function KeyTable({ keys, className }) {
     )
   }
 
-const APIKeys = () => {
+const Index = ({ createUrl }) => {
   return (
     <DashboardLayout>
       <div className="flex w-full flex-wrap items-end justify-between gap-4 pb-6">
         <Heading>API keys</Heading>
-        <Button>Create API Key</Button>
+        <Button href={createUrl}>New API key</Button>
       </div>
       <KeyTable keys={keys} className="mt-10" />
     </DashboardLayout>
   )
 }
 
-export default APIKeys
+export default Index

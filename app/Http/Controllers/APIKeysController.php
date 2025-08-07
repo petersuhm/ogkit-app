@@ -9,6 +9,15 @@ class APIKeysController extends Controller
 {
     public function index()
     {
-        return Inertia::render('APIKeys');
+        return Inertia::render('APIKeys/Index', [
+            'createUrl' => route('api-keys.create'),
+        ]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('APIKeys/Create', [
+            'indexUrl' => route('api-keys.index'),
+        ]);
     }
 }

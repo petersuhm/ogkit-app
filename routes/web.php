@@ -26,6 +26,7 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', fn () => Inertia::render('Dashboard'))->name('dashboard');
-    Route::get('/api-keys', [APIKeysController::class, 'index'])->name('api-keys');
+    Route::get('/api-keys', [APIKeysController::class, 'index'])->name('api-keys.index');
+    Route::get('/api-keys/new', [APIKeysController::class, 'create'])->name('api-keys.create');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
