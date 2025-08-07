@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\APIKeysController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -25,5 +26,6 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', fn () => Inertia::render('Dashboard'))->name('dashboard');
+    Route::get('/api-keys', [APIKeysController::class, 'index'])->name('api-keys');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
