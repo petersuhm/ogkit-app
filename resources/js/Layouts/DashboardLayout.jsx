@@ -27,7 +27,6 @@ import { Link } from '@/Components/link'
 const navItems = [
   { label: 'Dashboard', url: '/dashboard' },
   { label: 'API keys', url: '/api-keys', current: true },
-  { label: 'Usage', url: '/usage' },
 ]
 
 function TeamDropdownMenu() {

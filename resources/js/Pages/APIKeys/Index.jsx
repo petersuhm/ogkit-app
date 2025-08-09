@@ -4,22 +4,26 @@ import DashboardLayout from '../../Layouts/DashboardLayout'
 import { Dropdown, DropdownButton, DropdownItem, DropdownMenu } from '@/components/dropdown'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/table'
 import { EllipsisHorizontalIcon } from '@heroicons/react/16/solid'
-import { Code } from '@/components/text'
+import { ClipboardIcon } from '@heroicons/react/24/outline'
+import { Code, Text } from '@/components/text'
 import { Badge } from '@/components/badge'
 
 const keys = [
   {
     name: 'ogkit.dev',
+    key: 'SzaLDWvs',
     domains: 'ogkit.dev, *.ogkit.dev',
     signingEnabled: false,
   },
   {
     name: 'petersuhm.com',
+    key: 'PrykZSGX',
     domains: 'petersuhm.com',
     signingEnabled: false,
   },
   {
     name: 'Reform form previews',
+    key: 'ApUIF7ps',
     domains: '*',
     signingEnabled: true,
   },
@@ -31,6 +35,7 @@ function KeyTable({ keys, className }) {
         <TableHead>
           <TableRow>
             <TableHeader>Name</TableHeader>
+            <TableHeader>Key</TableHeader>
             <TableHeader>Domains</TableHeader>
             <TableHeader>Signing</TableHeader>
             <TableHeader className="relative w-0">
@@ -42,6 +47,16 @@ function KeyTable({ keys, className }) {
           {keys.map((key) => (
             <TableRow key={key.name}>
               <TableCell className="font-medium">{key.name}</TableCell>
+              <TableCell>
+                <div className="flex items-center gap-2 pt-2">
+                  <Text>
+                    <Code className="text-red-500">{key.key}</Code>
+                  </Text>
+                  <button className="text-zinc-500 hover:text-zinc-950 dark:hover:text-white">
+                    <ClipboardIcon className="h-4 w-4" />
+                  </button>
+                </div>
+              </TableCell>
               <TableCell><Code>{key.domains}</Code></TableCell>
               <TableCell><Badge color={key.signingEnabled ? 'green' : 'zinc'}>{key.signingEnabled ? 'Enabled' : 'Disabled'}</Badge></TableCell>
               <TableCell>
